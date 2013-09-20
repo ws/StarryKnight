@@ -1,0 +1,7 @@
+{
+  "name": "starryknight",
+  "version": "0.0.1",
+  "description": "A library for Twitter's undocumented favorites API.",
+  "author": "Will Smidlein <Will@WillSmidlein.com> (http://willsmidlein.com/)",
+  "license": "MIT"
+}
