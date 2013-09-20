@@ -10,10 +10,10 @@ exports.getUsersLatestTweets = function getUsersLatestTweets(username, callback)
     var tweets = [];
 
     request("https://twitter.com/i/profiles/show/" + username + "/timeline/with_replies?include_available_features=1&include_entities=1", function(error, response, body) {
-    
+
         if (!error && response.statusCode == 200) {
-            jsonDoc = JSON.parse(body);
-            $ = cheerio.load(jsonDoc.items_html);
+            var jsonDoc = JSON.parse(body);
+            var $ = cheerio.load(jsonDoc.items_html);
             $(".original-tweet").each(function(i, el) {
                 var text = $(el).find(".tweet-text").text();
                 var tweet_id = $(el).attr("data-tweet-id");
@@ -36,12 +36,12 @@ exports.getUsersLatestTweets = function getUsersLatestTweets(username, callback)
 exports.getTweetFaves = function getTweetFaves(id, callback) {
 
     var users = [];
-    
+
     request("https://twitter.com/i/activity/favorited_popup?id=" + id, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             var jsonDoc = JSON.parse(body);
             var favCount = S(jsonDoc.htmlTitle).between("Favorited", "times").trim().s;
-            $ = cheerio.load(jsonDoc.htmlUsers);
+            var $ = cheerio.load(jsonDoc.htmlUsers);
             $(".js-stream-item > .js-actionable-user").each(function(i, el) {
                 var user = {};
                 user.username = $(el).attr("data-screen-name");
