@@ -4,6 +4,7 @@
   "description": "A library for Twitter's undocumented favorites API.",
   "author": "Will Smidlein <Will@WillSmidlein.com> (http://willsmidlein.com/)",
   "license": "MIT",
+  "main": "StarryKnight.js",
   "dependencies": {
     "request": "~2.27.0",
     "string": "~1.6.0",
